@@ -11,6 +11,9 @@ A customizable GPT-based model trained on children's stories to understand and g
 - Checkpointing and best model saving
 - Weights & Biases integration for experiment tracking
 
+## Dataset
+- ajibawa-2023/Children-Stories-Collection
+
 ## Architecture
 
 The following diagram illustrates the end-to-end architecture and workflow for the Tiny-Children-Stories-Collection model:
