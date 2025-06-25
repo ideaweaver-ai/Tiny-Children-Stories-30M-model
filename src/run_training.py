@@ -92,6 +92,7 @@ def train_base_model(device, args):
             dropout=0.1,       # Dropout rate
             bias=True,         # Use bias in linear layers
         )
+        torch.serialization.add_safe_globals([GPTConfig])
         
         # Initialize model
         model = GPT(config)
