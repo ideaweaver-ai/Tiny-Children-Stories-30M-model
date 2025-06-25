@@ -5,13 +5,15 @@ import os
 from tqdm.auto import tqdm
 from datetime import datetime
 import time
+from model.gpt import GPTConfig
 
 # Load the base model
 print("Loading base model...")
+torch.serialization.add_safe_globals([GPTConfig])
 base_model_path = "Tiny-Children-Stories-Collection-model.pt"
 checkpoint = torch.load(base_model_path, map_location="cuda" if torch.cuda.is_available() else "cpu")
 model = AutoModelForCausalLM.from_pretrained("gpt2")
-model.load_state_dict(checkpoint['model_state_dict'])
+model.load_state_dict(checkpoint['model'])
 
 # Define LoRA configuration
 lora_config = LoraConfig(
